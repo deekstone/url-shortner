@@ -1,13 +1,9 @@
-import { NextResponse } from "next/server"
 import { nanoid } from 'nanoid'
 import * as redis from 'redis';
-import { NextApiRequest, NextApiResponse } from "next";
-
 
 const redisClient = redis.createClient();
 redisClient.connect().catch(console.error)
 
- 
 /**
  * Retrieves the original URL associated with a shortened URL.
  * 
@@ -29,6 +25,16 @@ export async function GET(req: Request){
         return  new Response(e?.message,{status:400})
     } 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 /**
