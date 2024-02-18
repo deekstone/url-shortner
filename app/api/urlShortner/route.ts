@@ -18,7 +18,7 @@ export async function GET(req: Request){
 
         const originalUrl =  await redisClient.get(shortenedUrl)
 
-        return  Response.json({message: 'succcess', originalUrl})
+        return new Response("success", { status:301, headers: {'Location': originalUrl || ''}})
     }catch(e){
         return  new Response(e?.message,{status:400})
     } 
@@ -35,7 +35,7 @@ export async function POST(req: Request){
     
         redisClient.set(nanoidId, originalUrl)
     
-        return  Response.json({message: 'succcess', shortenedUrl: nanoidId})
+        return  Response.json({message: 'success', shortenedUrl: nanoidId})
     }catch(e){
         return  new Response(e?.message,{status:400})
     } 
