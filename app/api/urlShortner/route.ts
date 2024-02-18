@@ -35,7 +35,7 @@ export async function POST(req: Request){
     
         redisClient.set(nanoidId, originalUrl)
     
-        return  Response.json({message: 'success', shortenedUrl: nanoidId})
+        return  Response.json({message: 'success', shortenedUrl: 'http://localhost:3000/api/urlShortner?shortenedUrl='+nanoidId})
     }catch(e){
         return  new Response(e?.message,{status:400})
     } 
