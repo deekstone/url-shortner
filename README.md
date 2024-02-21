@@ -32,6 +32,11 @@ Redis is used to store the data, you can add redis extension in VScode to run it
 
 use ``` redis-server ``` to run redis server. 
 
+## Linting
+
+Eslint prettier were added to enforce certain code styling.
+
+
 ## screenshots
 
 After running the project you will see this simple form.
