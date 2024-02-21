@@ -37,9 +37,9 @@ use ``` redis-server ``` to run redis server.
 Eslint prettier were added to enforce certain code styling.
 
 
-## screenshots
+## Screenshots
 
-After running the project you will see this simple form.
+After running the project this form will appear
 
 <p>
   <img src="readme/form.png" width="700" title="hover text"> 
