@@ -4,8 +4,6 @@ import * as redis from 'redis';
 const redisClient = redis.createClient();
 redisClient.connect().catch(console.error);
 
-const asd = 1;
-
 /**
  * Retrieves the original URL associated with a shortened URL.
  *
@@ -15,7 +13,6 @@ const asd = 1;
  */
 export async function GET(req: Request) {
   try {
-    console.log('asdasd');
     const { searchParams } = new URL(req.url);
     const shortenedUrl = searchParams.get('shortenedUrl');
 
