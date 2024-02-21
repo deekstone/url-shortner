@@ -5,13 +5,15 @@ import { useState } from 'react';
 export default function Home() {
   const [url, setUrl] = useState('');
   const [shortenedUrl, setShortenedUrl] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <main className=" border-2 p-3 m-3 ">
+    <main className=" border-2 border-black p-3 mt-5 max-w-[700px] m-auto ">
       <form
         onSubmit={async (e) => {
           e.preventDefault();
           try {
+            setIsLoading(true);
             const originalUrl = e?.target?.originalUrl?.value;
 
             const shortened = await fetch(
@@ -22,6 +24,8 @@ export default function Home() {
             setShortenedUrl(res.shortenedUrl);
           } catch (e) {
             //handle error
+          } finally {
+            setIsLoading(false);
           }
         }}
       >
@@ -38,11 +42,12 @@ export default function Home() {
           />
 
           <div className=" flex flex-row pt-3">
-            <h1>Shortened Url:</h1>
-            <span>{shortenedUrl}</span>
+            <b>Shortened Url:</b>
+            <span>{`  ${shortenedUrl}`}</span>
           </div>
 
           <button
+            disabled={isLoading}
             type="submit"
             className=" border-2 mt-10 bg-black text-white p-2"
           >
